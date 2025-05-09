@@ -21,3 +21,7 @@ __pycache__/
 # Virtual environment (if created locally)
 venv/
 .env/
+
+# request_json
+request_count.json
+
