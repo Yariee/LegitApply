@@ -1,0 +1,23 @@
+# Python bytecode/cache
+__pycache__/
+*.py[cod]
+
+# Environment files
+.env
+**/.env
+
+# Logs and data output
+*.log
+*.csv
+/data/
+
+# PyCharm project files
+.idea/
+
+# macOS and other OS artifacts
+.DS_Store
+*.swp
+
+# Virtual environment (if created locally)
+venv/
+.env/
