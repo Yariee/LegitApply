@@ -94,3 +94,27 @@ def scrape_jobs(driver):
 
     print(f"Scraped {len(jobs)} jobs")
     return jobs
+
+# -- Saving to CSV --
+def save_to_csv(jobs):
+    if not os.path.exists("data"):
+        os.makedirs("")
+    df = pd.DataFrame(jobs)
+    df.to_csv(JOBS_CSV, index=False)
+    print(f"Saved Jobs to {JOBS_CSV}")
+
+# Main Execution
+if __name__ == "__main__":
+    if not can_make_request():
+        print("Weekly Requests have been reached")
+        exit()
+
+    driver = create_driver()
+    try:
+        record_request()    # Log the request we are making
+        login(driver)
+        go_to_job_search(driver)
+        jobs = scrape_jobs(driver)
+        save_to_csv(jobs)
+    finally:
+        driver.quit()
